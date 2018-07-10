@@ -105,14 +105,13 @@ var unifiedServer = function(req,res){
 			res.end(resPayloadStr);
 
 			//log
+			console.log('###');
 			console.log('Req Payload received: ', reqPayloadBuffer);
 			console.log('Res Payload sent: '+ resPayloadStr);
-			console.log('###Ends');
+			
 		});
 
 	});
-
-	console.log('$$$ this should be logged before payload');
 };
 
 
@@ -121,7 +120,7 @@ var handlers = {};
 
 //Hello World Handler
 handlers.helloworld = function(reqData,callback){
-	callback(200,{"Response":{"msg" : "Hello World!"}});
+	callback(200,{"Response":{"msg" : "Hello World! This is a stub response"}});
 };
 
 //Healthcheck Handler
@@ -140,7 +139,7 @@ handlers.notFound = function(reqData, callback){
 };
 
 var router = {
-	"helloworld" : handlers.helloworld,
+	"hello" : handlers.helloworld,
 	"healthcheck" : handlers.healthcheck,
 	"foo/bar" : handlers.foobar
 };
